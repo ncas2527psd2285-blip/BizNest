@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
+import { API_URL } from "../config";
 
-const API_URL = "http://localhost:5000/api";
 
 type Supplier = {
   _id: string;

@@ -11,6 +11,8 @@ import RealEstate from "./templates/RealEstate";
 import Technology from "./templates/Technology";
 import MinimalShop from "./templates/MinimalShop";
 
+import { PUBLIC_API_URL } from "../config";
+
 import "./public-site.css";
 
 /* =========================================================
@@ -86,7 +88,17 @@ type PublicWebsiteProps = {
    API
 ========================================================= */
 
-const API_BASE_URL = "http://localhost:5000";
+/*
+ * Local:
+ *   VITE_API_URL=http://localhost:5000
+ *
+ * Production:
+ *   VITE_API_URL=https://biznest-api-xz4p.onrender.com
+ *
+ * PUBLIC_API_URL comes from src/config.ts
+ */
+
+const API_BASE_URL = PUBLIC_API_URL.replace(/\/$/, "");
 
 /* =========================================================
    SLUG
@@ -105,8 +117,7 @@ function getSlugFromBrowser(): string {
    * /sites/kreative-prints
    */
 
-  const sitesIndex =
-    parts.indexOf("sites");
+  const sitesIndex = parts.indexOf("sites");
 
   if (
     sitesIndex !== -1 &&
@@ -169,10 +180,11 @@ function normalizeTheme(
       "12px",
 
     /*
-     * IMPORTANT:
-     * style is REQUIRED here.
+     * style is required internally.
+     *
+     * Older websites may not have this field,
+     * so we provide a safe default.
      */
-
     style:
       theme?.style ||
       "modern",

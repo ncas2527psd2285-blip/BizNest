@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import PublicWebsite from "./public-site/PublicWebsite";
 import WebsiteBuilderPage from "./components/website-builder/WebsiteBuilderPage";
-
-const API_URL = "http://localhost:5000/api";
+import { API_URL } from "./config";
 
 /* =========================================================
    TYPES

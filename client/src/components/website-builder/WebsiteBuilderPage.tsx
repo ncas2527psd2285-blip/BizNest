@@ -11,6 +11,7 @@ import BusinessHoursStep from "./BusinessHoursStep";
 import SeoSettings from "./SeoSettings";
 import WebsitePreview from "./WebsitePreview";
 import AIGenerator from "./AIGenerator";
+import { API_URL } from "../../config";
 
 export type WebsiteTemplate =
   | "modern-business"
@@ -117,8 +118,6 @@ type Props = {
   token: string;
 };
 
-const API_URL =
-  "http://localhost:5000/api/websites";
 
 const DEFAULT_THEME: WebsiteTheme = {
   primaryColor: "#2563eb",
